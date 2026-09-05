@@ -7,6 +7,6 @@ Atualmente, a base de dados é um PDF com informações relevantes sobre o futeb
 
 O projeto utiliza o seguinte fluxo:
 
-PDF > Extração do texto > Divide em chunks > Transforma os chunks em embeddings > ChromaDB > Aplica uma busca semântica > Seleciona apenas os chunks mais relevantes > Manda os chunks para o DeepSeek > Retorna a esposta.
+PDF > Extração do texto > Divide em chunks > Transforma os chunks em embeddings > ChromaDB > Aplica uma busca semântica > Seleciona apenas os chunks mais relevantes > Manda os chunks para o DeepSeek > Retorna a resposta.
 
 Vale lembrar que SportsAI é apenas um projeto solo feito para puramente estudos, o projeto deve ser continuado e melhorado com o tempo.
