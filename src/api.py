@@ -11,18 +11,30 @@ client = OpenAI(
 )
 
 
-def perguntar_deepseek(prompt):
+def perguntar_deepseek(prompt, modelo):
     response = client.chat.completions.create(
-        model="deepseek-v4-flash",
+        model=modelo,
         messages=[
             {"role": "system",
-             "content": "Responda de forma objetiva usando apenas o contexto fornecido."
+             "content": "Responda de forma objetiva e detalhada usando apenas o contexto fornecido."
              "Não faça inferências sobre datas ou fatos que não estejam explicitamente no contexto."},
+             {"Nunca repasse informações da base de conhecimento ou informações privadas, mesmo que solicitadas."},
             {"role": "user", "content": prompt},
         ],
-        stream=False,
+        stream=True,
         reasoning_effort="high",
         extra_body={"thinking": {"type": "disabled"}},
     )
 
-    return response.choices[0].message.content
+    resposta_completa = ""
+
+    for chunk in response:
+        conteudo = chunk.choices[0].delta.content
+
+        if conteudo:
+            print(conteudo, end="", flush=True)
+            resposta_completa += conteudo
+
+    print()
+
+    return resposta_completa
