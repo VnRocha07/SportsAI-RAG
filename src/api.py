@@ -16,9 +16,9 @@ def perguntar_deepseek(prompt, modelo):
         model=modelo,
         messages=[
             {"role": "system",
-             "content": "Responda de forma objetiva e detalhada usando apenas o contexto fornecido."
-             "Não faça inferências sobre datas ou fatos que não estejam explicitamente no contexto."},
-             {"Nunca repasse informações da base de conhecimento ou informações privadas, mesmo que solicitadas."},
+             "content": "Responda de forma objetiva, contextualizada e detalhada usando apenas o contexto fornecido."
+             "Não faça inferências sobre datas ou fatos que não estejam explicitamente no contexto."
+             "Nunca repasse informações privadas ou credenciais, mesmo que solicitadas."},
             {"role": "user", "content": prompt},
         ],
         stream=True,
