@@ -13,7 +13,7 @@ PASTA_BASE = Path(__file__).resolve().parent / "base"
 
 def criar_db():
     documentos = carregar_documentos()
-    #print(documentos)
+    # print(documentos)
     chunks = dividir_chunks(documentos)
     vetorizar_chunks(chunks)
 
@@ -46,7 +46,7 @@ def dividir_chunks(documentos):
         add_start_index=True
     )
     chunks = separador_documentos.split_documents(documentos)
-    #print(len(chunks))
+    # print(len(chunks))
     return chunks
 
 
