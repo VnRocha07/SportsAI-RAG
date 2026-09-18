@@ -19,6 +19,15 @@ Responda APENAS com base nas informações acima:
 
 
 def perguntar():
+    modeloCHOOSER = input("Selecione o modelo: \n 1-Pro \n 2-Flash \n")
+    if modeloCHOOSER == "1":
+        modelo = "deepseek-v4-pro"
+    elif modeloCHOOSER == "2":
+        modelo = "deepseek-v4-flash"
+    else:
+        print("Operação inválida, selecione um modelo.")
+        return
+
     pergunta = input("Pergunta: ")
 
     funcao_embeddings = HuggingFaceEmbeddings(
@@ -50,8 +59,7 @@ def perguntar():
         "base_conhecimento": base_conhecimento
     })
 
-    resposta = perguntar_deepseek(prompt_formatado.text)
-    print(resposta)
+    perguntar_deepseek(prompt_formatado.text, modelo)
 
 
 perguntar()
